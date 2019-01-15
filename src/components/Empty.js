@@ -1,19 +1,8 @@
 import React from 'react';
 import { rgba } from 'polished';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Empty = ({ className }) => <div className={className} />;
-
-Empty.defaultProps = {
-  className: '',
-};
-
-Empty.propTypes = {
-  className: PropTypes.string,
-};
-
-export default styled(Empty)`
+const Wrapper = styled.div`
   @media (${props => props.theme['--screen-medium']}) {
     background: ${props => props.theme['--color-light']};
     border-left: 1px solid ${props => rgba(props.theme['--color-dark'], 0.1)};
@@ -24,3 +13,9 @@ export default styled(Empty)`
     width: calc(100% - 32rem);
   }
 `;
+
+function Empty() {
+  return <Wrapper />;
+}
+
+export default Empty;
