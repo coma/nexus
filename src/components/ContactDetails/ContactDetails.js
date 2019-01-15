@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Link from '../Link';
 import getContact from './getContact';
+import ContactDetailsCard from './ContactDetailsCard';
+import ContactDetailsLoading from './ContactDetailsLoading';
 import { Wrapper, Container, Header, ArrowIcon } from './ContactDetails.style';
 
 class ContactDetails extends Component {
@@ -44,7 +46,13 @@ class ContactDetails extends Component {
             <ArrowIcon />
           </Link>
         </Header>
-        <Container>{contact ? contact.name.first : 'loading'}</Container>
+        <Container>
+          {contact ? (
+            <ContactDetailsCard contact={contact} />
+          ) : (
+            <ContactDetailsLoading />
+          )}
+        </Container>
       </Wrapper>
     );
   }
