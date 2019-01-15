@@ -3,6 +3,7 @@ import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Contacts from '../../services/contacts';
 import Icon from '../Icon';
 import Link from '../Link';
 
@@ -16,27 +17,44 @@ class ContactDetails extends Component {
 
   static propTypes = {
     className: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   };
 
-  state = {
-    data: { name: '[name]' },
-  };
+  state = {};
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.getContact();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { id } = this.props.match.params;
+    const { id: prevId } = prevProps.match.params;
+    if (id !== prevId) {
+      this.getContact();
+    }
+  }
+
+  async getContact() {
+    const { id } = this.props.match.params;
+    this.setState({ contact: null });
+    this.setState({ contact: await Contacts.read(id) });
+  }
 
   render() {
-    const { className } = this.props;
-    const { data } = this.state;
+    const { contact } = this.state;
 
     return (
-      <article className={className}>
+      <article className={this.props.className}>
         <Header>
           <Link to="/">
             <Icon>arrow_back_ios</Icon>
           </Link>
-          {data.name}
         </Header>
-        <Container>You need to implement the view here</Container>
+        <Container>{contact ? contact.name.first : 'loading'}</Container>
       </article>
     );
   }
