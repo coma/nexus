@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Contacts from '../../services/contacts';
 import Link from '../Link';
+import getContact from './getContact';
 import { Wrapper, Container, Header, ArrowIcon } from './ContactDetails.style';
 
 class ContactDetails extends Component {
@@ -31,7 +31,7 @@ class ContactDetails extends Component {
   async getContact() {
     const { id } = this.props.match.params;
     this.setState({ contact: null });
-    this.setState({ contact: await Contacts.read(id) });
+    this.setState({ contact: await getContact(id) });
   }
 
   render() {
