@@ -1,29 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import Contact from './Contact';
-import List from '../List';
+import { Wrapper, Input, Contacts } from './ContactList.style';
 
-const ContactList = ({ className, items }) => (
-  <List className={className} items={items} template={Contact} />
-);
+class ContactList extends Component {
+  static getDerivedStateFromProps(props, state) {
+    return {
+      ...state,
+      contacts: props.items.filter(
+        contact =>
+          contact.name.last.startsWith(state.q) ||
+          contact.name.first.startsWith(state.q),
+      ),
+    };
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { q: '' };
+    // you should ask me why I prefer this rather than other options...
+    this.onSearch = this.onSearch.bind(this);
+  }
+
+  onSearch(event) {
+    this.setState({ q: event.target.value });
+  }
+
+  render() {
+    const { q, contacts } = this.state;
+
+    return (
+      <Wrapper>
+        <Input placeholder="search..." onChange={this.onSearch} value={q} />
+        <Contacts items={contacts} />
+      </Wrapper>
+    );
+  }
+}
 
 ContactList.defaultProps = {
-  className: '',
   items: [],
 };
 
 ContactList.propTypes = {
-  className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.any),
 };
 
-export default styled(ContactList)`
-  margin-top: 1.2rem;
-  list-style: none;
-
-  @media (${props => props.theme['--screen-medium']}) {
-    width: 32rem;
-  }
-`;
+export default ContactList;
