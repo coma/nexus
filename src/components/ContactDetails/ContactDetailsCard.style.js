@@ -18,6 +18,7 @@ export const Info = styled.div`
 
 export const Name = styled.div`
   ${props => props.theme['--font-extra-large']};
+  font-weight: ${props => props.theme['--font-weight-medium']};
   margin: 1em 0;
   padding-bottom: 0.5em;
   text-align: center;

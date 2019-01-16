@@ -18,7 +18,7 @@ const Contact = ({
   picture: { thumbnail },
 }) => (
   <Link to={id}>
-    <article className={className}>
+    <article className={className} id={`contact-${id}`}>
       <Avatar image={thumbnail} name={`${first} ${last}`} />
       <Container>
         <Name>{`${first} ${last}`}</Name>

@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Input, Contacts } from './ContactList.style';
+import filterAndSort from './filterAndSort';
+import getLetters from './getLetters';
+import { Wrapper, Input, Contacts, Letters, Letter } from './ContactList.style';
 
 class ContactList extends Component {
   static getDerivedStateFromProps(props, state) {
-    return {
-      ...state,
-      contacts: props.items
-        .sort((a, b) => a.name.first.localeCompare(b.name.first))
-        .filter(
-          contact =>
-            contact.name.last.startsWith(state.q) ||
-            contact.name.first.startsWith(state.q),
-        ),
-    };
+    const contacts = filterAndSort(props.items, state.q);
+    const letters = getLetters(contacts);
+
+    return { ...state, contacts, letters };
   }
 
   constructor(props) {
@@ -29,12 +25,19 @@ class ContactList extends Component {
   }
 
   render() {
-    const { q, contacts } = this.state;
+    const { q, contacts, letters } = this.state;
 
     return (
       <Wrapper>
         <Input placeholder="search..." onChange={this.onSearch} value={q} />
         <Contacts items={contacts} />
+        <Letters>
+          {letters.map(({ letter, id }) => (
+            <Letter key={letter} isDisabled={!id} href={`#contact-${id}`}>
+              {letter}
+            </Letter>
+          ))}
+        </Letters>
       </Wrapper>
     );
   }
