@@ -10,10 +10,11 @@ export const List = ({
   items,
   options,
   template: Template,
+  getKey,
 }) => (
   <ul className={className}>
     {items.map((item, index) => (
-      <Item key={JSON.stringify(item)}>
+      <Item key={getKey(item)}>
         <Template
           {...options}
           index={index}
@@ -36,6 +37,7 @@ List.defaultProps = {
   template({ item }) {
     return item;
   },
+  getKey: ({ id }) => id,
 };
 
 List.propTypes = {
@@ -44,6 +46,7 @@ List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
   options: PropTypes.objectOf(PropTypes.any),
   template: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  getKey: PropTypes.func,
 };
 
 export default styled(List)``;
