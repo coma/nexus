@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The getLetters helper should index by letters and others 1`] = `
+Array [
+  Object {
+    "id": "a",
+    "letter": "A",
+  },
+  Object {
+    "id": undefined,
+    "letter": "B",
+  },
+  Object {
+    "id": undefined,
+    "letter": "C",
+  },
+  Object {
+    "id": undefined,
+    "letter": "D",
+  },
+  Object {
+    "id": undefined,
+    "letter": "E",
+  },
+  Object {
+    "id": undefined,
+    "letter": "F",
+  },
+  Object {
+    "id": undefined,
+    "letter": "G",
+  },
+  Object {
+    "id": undefined,
+    "letter": "H",
+  },
+  Object {
+    "id": undefined,
+    "letter": "I",
+  },
+  Object {
+    "id": undefined,
+    "letter": "J",
+  },
+  Object {
+    "id": undefined,
+    "letter": "K",
+  },
+  Object {
+    "id": undefined,
+    "letter": "L",
+  },
+  Object {
+    "id": undefined,
+    "letter": "M",
+  },
+  Object {
+    "id": undefined,
+    "letter": "N",
+  },
+  Object {
+    "id": undefined,
+    "letter": "O",
+  },
+  Object {
+    "id": undefined,
+    "letter": "P",
+  },
+  Object {
+    "id": undefined,
+    "letter": "Q",
+  },
+  Object {
+    "id": undefined,
+    "letter": "R",
+  },
+  Object {
+    "id": undefined,
+    "letter": "S",
+  },
+  Object {
+    "id": undefined,
+    "letter": "T",
+  },
+  Object {
+    "id": undefined,
+    "letter": "U",
+  },
+  Object {
+    "id": undefined,
+    "letter": "V",
+  },
+  Object {
+    "id": undefined,
+    "letter": "W",
+  },
+  Object {
+    "id": "x",
+    "letter": "X",
+  },
+  Object {
+    "id": undefined,
+    "letter": "Y",
+  },
+  Object {
+    "id": undefined,
+    "letter": "Z",
+  },
+  Object {
+    "id": "3",
+    "letter": "#",
+  },
+]
+`;

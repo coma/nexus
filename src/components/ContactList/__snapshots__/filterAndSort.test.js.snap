@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The filterAndSort helper should filter by firts and last name and sort by firts name 1`] = `
+Array [
+  Object {
+    "id": "al",
+    "name": Object {
+      "first": "Alejandro",
+      "last": "foo",
+    },
+  },
+]
+`;
