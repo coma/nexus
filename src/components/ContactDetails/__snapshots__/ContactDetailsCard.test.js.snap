@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The ContactDetailsCard component should render properly 1`] = `
+<div
+  class="sc-bdVaJa fkcOCo"
+>
+  <div
+    class="sc-bZQynM ggZgjx"
+    sizes="[object Object]"
+  />
+  <div
+    class="sc-htpNat ccQUyh"
+  >
+    Dr.
+     
+    Strange
+     
+    Love
+  </div>
+  <div
+    class="sc-bxivhb dJdFkY"
+  >
+    <a
+      class="sc-ifAKCX kKPrLR"
+      href="mailto:love@the.bomb"
+    >
+      love@the.bomb
+    </a>
+    <a
+      class="sc-EHOje jvHvlZ"
+      href="tel:12345678"
+    >
+      12345678
+    </a>
+  </div>
+</div>
+`;

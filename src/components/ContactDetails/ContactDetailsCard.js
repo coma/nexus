@@ -39,7 +39,6 @@ ContactDetailsCard.propTypes = {
     picture: PropTypes.shape({
       large: PropTypes.string,
       medium: PropTypes.string,
-      thumbnail: PropTypes.string,
     }).isRequired,
     email: PropTypes.string,
     phone: PropTypes.string,
