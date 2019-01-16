@@ -7,11 +7,13 @@ class ContactList extends Component {
   static getDerivedStateFromProps(props, state) {
     return {
       ...state,
-      contacts: props.items.filter(
-        contact =>
-          contact.name.last.startsWith(state.q) ||
-          contact.name.first.startsWith(state.q),
-      ),
+      contacts: props.items
+        .sort((a, b) => a.name.first.localeCompare(b.name.first))
+        .filter(
+          contact =>
+            contact.name.last.startsWith(state.q) ||
+            contact.name.first.startsWith(state.q),
+        ),
     };
   }
 
