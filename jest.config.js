@@ -1,4 +1,5 @@
 module.exports = {
+  resetMocks: true,
   collectCoverageFrom: ['src/**/*.js'],
   coverageDirectory: '<rootDir>/coverage',
   moduleNameMapper: {
