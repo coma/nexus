@@ -57,7 +57,7 @@ export const Picture = styled.div`
   margin: 0 auto;
   border-right: 1px solid ${props => rgba(props.theme['--color-dark'], 0.1)};
   border-radius: 50%;
-  background-color: red;
+  background-color: ${props => props.theme['--color-dark']};
   background-image: url(${props => props.sizes.medium});
   background-repeat: no-repeat;
   background-position: 0 0;
