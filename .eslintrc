@@ -20,5 +20,13 @@
     "import/no-named-as-default-member": "off",
     "react/jsx-filename-extension": "off",
     "react/destructuring-assignment": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
 }
